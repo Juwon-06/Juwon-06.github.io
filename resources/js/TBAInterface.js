@@ -45,4 +45,4 @@ function getSchedule(eventCode) {
 		// Send request
 		xmlhttp.send();
 	}
-}//confirm
+}
