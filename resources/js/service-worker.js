@@ -1,11 +1,12 @@
-if('serviceWorker' in navigator) {
-  let registration;
-
-  const registerServiceWorker = async () => {
-    registration = await          navigator.serviceWorker.register('./service-worker.js');
-  };
-
-  registerServiceWorker();
+if ('serviceWorker' in navigator) {
+  // declaring scope manually
+  navigator.serviceWorker.register('/sw.js', {scope: '/product/'}).then(function(registration) {
+    console.log('Service worker registration succeeded:', registration);
+  }, /*catch*/ function(error) {
+    console.log('Service worker registration failed:', error);
+  });
+} else {
+  console.log('Service workers are not supported.');
 }
 
 // give your cache a name
